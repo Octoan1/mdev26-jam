@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://iemutaf2pf5n"]
+
+[ext_resource type="Script" uid="uid://ba6rfcdula2ja" path="res://draggable_component.gd" id="1_mb6cj"]
+[ext_resource type="Texture2D" uid="uid://b5uewpj613qtf" path="res://banana_test.png" id="1_s1qo3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 46.0
+
+[node name="Banana" type="Node2D" unique_id=1063776925 groups=["banana"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1820809466]
+texture = ExtResource("1_s1qo3")
+
+[node name="Draggable" type="Area2D" parent="." unique_id=497776732 node_paths=PackedStringArray("parent")]
+script = ExtResource("1_mb6cj")
+parent = NodePath("..")
+metadata/_custom_type_script = "uid://ba6rfcdula2ja"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable" unique_id=1415540539]
+shape = SubResource("CircleShape2D_g4v7s")

@@ -1,3 +1,33 @@
 [gd_scene format=3 uid="uid://di22plj3da3aq"]
 
+[ext_resource type="Script" uid="uid://c8i357ikyhb4e" path="res://monkey.gd" id="1_0500s"]
+[ext_resource type="Texture2D" uid="uid://jfumsdimevkl" path="res://stupd_monkey_test-Sheet.png" id="2_0500s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7a43"]
+atlas = ExtResource("2_0500s")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7a43")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 35.22783
+
 [node name="Monkey" type="CharacterBody2D" unique_id=369541836]
+script = ExtResource("1_0500s")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1870616918]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=118150200]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561119598]
+shape = SubResource("CircleShape2D_yf5fn")
