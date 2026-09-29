@@ -25,11 +25,22 @@ gdscript/warnings/untyped_declaration=1
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1024
+window/size/viewport_width=1344
+window/size/viewport_height=704
 window/size/window_width_override=960
 window/size/window_height_override=512
 window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://autoload/": "pink",
+"res://components/": "gray",
+"res://entities/": "yellow",
+"res://game/": "purple",
+"res://levels/": "red",
+"res://ui/": "teal"
+}
 
 [input]
 
@@ -79,4 +90,5 @@ ui_down={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

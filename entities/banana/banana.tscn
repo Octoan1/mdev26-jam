@@ -1,15 +1,39 @@
 [gd_scene format=3 uid="uid://iemutaf2pf5n"]
 
 [ext_resource type="Script" uid="uid://ba6rfcdula2ja" path="res://components/draggable_component.gd" id="1_mb6cj"]
-[ext_resource type="Texture2D" uid="uid://b5uewpj613qtf" path="res://entities/banana/banana.png" id="1_s1qo3"]
+[ext_resource type="Texture2D" uid="uid://djg6mwu63oi8n" path="res://entities/banana/banana-Sheet.png" id="1_pc733"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2mbs"]
+atlas = ExtResource("1_pc733")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp47m"]
+atlas = ExtResource("1_pc733")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2mbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp47m")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 46.0
 
 [node name="Banana" type="Node2D" unique_id=1063776925 groups=["banana"]]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1820809466]
-texture = ExtResource("1_s1qo3")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=885515484]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.19655012
 
 [node name="Draggable" type="Area2D" parent="." unique_id=497776732 node_paths=PackedStringArray("parent")]
 script = ExtResource("1_mb6cj")

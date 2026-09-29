@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jfumsdimevkl"
-path="res://.godot/imported/monkey_sheet.png-f591bab0aa6245aa5a9016b930f61381.ctex"
+uid="uid://l5b7bxc82d1g"
+path="res://.godot/imported/monkey-Sheet.png-3b5577ba7783df3eff829b98ab8f7829.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/monkey/monkey_sheet.png"
-dest_files=["res://.godot/imported/monkey_sheet.png-f591bab0aa6245aa5a9016b930f61381.ctex"]
+source_file="res://entities/monkey/monkey-Sheet.png"
+dest_files=["res://.godot/imported/monkey-Sheet.png-3b5577ba7783df3eff829b98ab8f7829.ctex"]
 
 [params]
 
