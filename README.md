@@ -15,3 +15,8 @@ ui/            menus, HUD, win/lose screens
 autoload/      singletons, only if we actually need one
 assets/        shared stuff owned by no single entity (audio/, fonts/)
 ```
+
+## Input
+
+The built-in `ui_up` / `ui_left` / `ui_down` / `ui_right` actions also include WASD (physical keys) alongside the arrows and controller,
+so `Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")` covers all of them.
