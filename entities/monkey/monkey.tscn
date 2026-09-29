@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://di22plj3da3aq"]
 
-[ext_resource type="Script" uid="uid://c8i357ikyhb4e" path="res://monkey.gd" id="1_0500s"]
-[ext_resource type="Texture2D" uid="uid://jfumsdimevkl" path="res://stupd_monkey_test-Sheet.png" id="2_0500s"]
+[ext_resource type="Script" uid="uid://c8i357ikyhb4e" path="res://entities/monkey/monkey.gd" id="1_0500s"]
+[ext_resource type="Texture2D" uid="uid://jfumsdimevkl" path="res://entities/monkey/monkey_sheet.png" id="2_0500s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7a43"]
 atlas = ExtResource("2_0500s")

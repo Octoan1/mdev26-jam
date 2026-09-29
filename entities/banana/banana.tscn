@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://iemutaf2pf5n"]
 
-[ext_resource type="Script" uid="uid://ba6rfcdula2ja" path="res://draggable_component.gd" id="1_mb6cj"]
-[ext_resource type="Texture2D" uid="uid://b5uewpj613qtf" path="res://banana_test.png" id="1_s1qo3"]
+[ext_resource type="Script" uid="uid://ba6rfcdula2ja" path="res://components/draggable_component.gd" id="1_mb6cj"]
+[ext_resource type="Texture2D" uid="uid://b5uewpj613qtf" path="res://entities/banana/banana.png" id="1_s1qo3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 46.0
