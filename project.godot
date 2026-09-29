@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="mdev26-jam"
-run/main_scene="uid://dxnmievu7c8yh"
+run/main_scene="uid://gywbpgqwxmdi"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://autoload/scene_manager.gd"
 
 [debug]
 

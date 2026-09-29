@@ -1,6 +1,6 @@
 # mdev26-jam
 
-Godot 4.7 project. Main scene: `game/game.tscn`.
+Godot 4.7 project. Main scene: `ui/title_screen/title_screen.tscn` (Play loads `game/game.tscn`).
 
 ## Project layout
 
