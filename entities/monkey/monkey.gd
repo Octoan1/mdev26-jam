@@ -8,7 +8,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	ray_cast_2d.target_position = to_local(test_banana.global_position)
 	
 	if not ray_cast_2d.is_colliding():
