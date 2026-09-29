@@ -16,6 +16,16 @@ autoload/      singletons, only if we actually need one
 assets/        shared stuff owned by no single entity (audio/, fonts/)
 ```
 
+## Creating a level
+
+1. In the FileSystem dock, right-click an existing level in `levels/` > **Duplicate**, and name it `level_NN.tscn`.
+   (Or start fresh: a `Node2D` root with two `TileMapLayer` children, `Floor` and `Walls`, both using `levels/tileset.tres`.)
+2. Paint the `Floor` and `Walls` layers. Tiles are 64x64.
+3. Place the **Monkey**, **Banana**, and at least one **Goal** (drag their `.tscn` from `entities/` into the scene).
+   Snap the goal to the grid: tile centers are at multiples of 64, plus 32.
+4. Select the Monkey and set its **Test Banana** to the Banana in the Inspector. The monkey errors without one.
+5. Open `levels/level_list.tres` and drag the new scene into the **Levels** array. Its position in the array is its play order.
+
 ## Physics layers
 
 Named in Project Settings > Layer Names > 2D Physics. When adding a tile or hazard, put it on its own layer and
