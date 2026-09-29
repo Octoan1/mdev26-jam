@@ -16,6 +16,24 @@ autoload/      singletons, only if we actually need one
 assets/        shared stuff owned by no single entity (audio/, fonts/)
 ```
 
+## Physics layers
+
+Named in Project Settings > Layer Names > 2D Physics. When adding a tile or hazard, put it on its own layer and
+set its mask to whatever it should detect.
+
+| # | Name     | Who's on it                          | Detects (mask)  |
+|---|----------|--------------------------------------|-----------------|
+| 1 | World    | wall tiles (`levels/tileset.tres`)   | nothing         |
+| 2 | Player   | monkey                               | World           |
+| 3 | Banana   | reserved for the banana (not set yet: its Draggable area is still on layer 1) | – |
+| 4 | GoalFlag | goal (`entities/goal`)               | Player          |
+
+## Winning and failing
+
+Goals and hazards only **emit signals** (e.g. `Goal.reached`); they never change the level themselves.
+`game/game.gd` connects to them and decides what happens, calling `LevelManager.complete_level()` or
+`LevelManager.restart_level()`. New win/fail conditions (lasers, anti-banana tiles, ...) should follow the same pattern.
+
 ## Input
 
 The built-in `ui_up` / `ui_left` / `ui_down` / `ui_right` actions also include WASD (physical keys) alongside the arrows and controller,
