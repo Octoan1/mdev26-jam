@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ba6rfcdula2ja" path="res://components/draggable_component.gd" id="1_mb6cj"]
 [ext_resource type="Texture2D" uid="uid://djg6mwu63oi8n" path="res://entities/banana/banana-Sheet.png" id="1_pc733"]
+[ext_resource type="Script" uid="uid://dmtdng4uetgrj" path="res://entities/banana/banana_death_zone.gd" id="3_v2mbs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2mbs"]
 atlas = ExtResource("1_pc733")
@@ -24,7 +25,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-[ext_resource type="Script" uid="uid://dmtdng4uetgrj" path="res://entities/banana/banana_death_zone.gd" id="3_v2mbs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 46.0
