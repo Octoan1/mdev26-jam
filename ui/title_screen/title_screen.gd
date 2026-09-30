@@ -16,7 +16,7 @@ func _ready() -> void:
 
 ## Starts the game.
 func _on_play_pressed() -> void:
-	SceneManager.change_scene(SceneManager.GAME)
+	LevelManager.start_game()
 
 
 ## Closes the game.

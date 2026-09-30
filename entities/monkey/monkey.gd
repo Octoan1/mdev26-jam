@@ -1,3 +1,4 @@
+class_name Monkey
 extends CharacterBody2D
 
 @export var test_banana: Node2D
