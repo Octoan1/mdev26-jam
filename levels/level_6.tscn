@@ -24,7 +24,7 @@ tile_set = ExtResource("1_8tsbn")
 position = Vector2(865, 146)
 
 [node name="Banana" parent="." unique_id=1063776925 instance=ExtResource("3_fpvgn")]
-position = Vector2(600, 218)
+position = Vector2(722, 238)
 
 [node name="Monkey" parent="." unique_id=369541836 node_paths=PackedStringArray("test_banana", "hazard_tile_map") instance=ExtResource("4_xn6mk")]
 position = Vector2(913, 479)
