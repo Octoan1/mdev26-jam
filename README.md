@@ -64,8 +64,8 @@ sound goes in `Monkey.die()`, and anything about the level (a fail screen, a liv
 
 To make a tile deadly, tick its `is_hazard` custom data in `levels/tileset.tres`.
 
-A level scene run by itself (F6) has no `game.gd`, so the monkey stops on death but nothing restarts. Run the game
-from the title screen, or set `LevelManager.current_index` and run `game/game.tscn`, to test restarts.
+A level scene run by itself (F6) has no `game.gd`, so the monkey reloads that level itself when it dies. Reaching
+the goal does nothing there; run the game from the title screen to test moving between levels.
 
 ## Input
 

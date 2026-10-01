@@ -49,3 +49,6 @@ func die() -> void:
 	# death animations or sounds can go here
 	set_physics_process(false)
 	died.emit()
+	# a level run by itself (F6) has no game.gd listening, so reload it from here
+	if owner and owner == get_tree().current_scene:
+		SceneManager.change_scene(owner.scene_file_path)
