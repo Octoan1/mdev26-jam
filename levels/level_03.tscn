@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bgoalmarkerxq" path="res://entities/goal/goal.tscn" id="2_ngl01"]
 [ext_resource type="PackedScene" uid="uid://iemutaf2pf5n" path="res://entities/banana/banana.tscn" id="3_wq170"]
 [ext_resource type="PackedScene" uid="uid://di22plj3da3aq" path="res://entities/monkey/monkey.tscn" id="4_6hrdw"]
+[ext_resource type="PackedScene" path="res://entities/laser/laser.tscn" id="5_laser"]
 
 [node name="Level03" type="Node2D" unique_id=798864425]
 
@@ -29,3 +30,6 @@ position = Vector2(880, 310)
 position = Vector2(145, 134)
 test_banana = NodePath("../Banana")
 hazard_tile_map = NodePath("../Hazards")
+
+[node name="Laser" parent="." instance=ExtResource("5_laser")]
+position = Vector2(504, 456)
