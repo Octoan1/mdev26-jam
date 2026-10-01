@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://xccyuptqccqf" path="res://levels/tileset.tres" id="2_tiles"]
 [ext_resource type="PackedScene" uid="uid://di22plj3da3aq" path="res://entities/monkey/monkey.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://bgoalmarkerxq" path="res://entities/goal/goal.tscn" id="4_goal"]
+[ext_resource type="PackedScene" path="res://entities/turret/turret.tscn" id="5_turret"]
 
 [node name="Level02" type="Node2D" unique_id=630527432]
 
@@ -24,3 +25,6 @@ position = Vector2(430, 314)
 [node name="Monkey" parent="." unique_id=369541836 node_paths=PackedStringArray("test_banana") instance=ExtResource("3_fc0e3")]
 position = Vector2(190, 370)
 test_banana = NodePath("../Banana")
+
+[node name="Turret" parent="." instance=ExtResource("5_turret")]
+position = Vector2(648, 72)

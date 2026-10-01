@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://entities/turret/bullet.gd" id="1_bullet"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bullet"]
+radius = 6.0
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_bullet")
+
+[node name="Shape" type="Polygon2D" parent="."]
+color = Color(1, 0.85, 0.2, 1)
+polygon = PackedVector2Array(6, 0, 4.2, 4.2, 0, 6, -4.2, 4.2, -6, 0, -4.2, -4.2, 0, -6, 4.2, -4.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bullet")

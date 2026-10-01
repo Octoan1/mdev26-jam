@@ -28,7 +28,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 35.22783
 
-[node name="Monkey" type="CharacterBody2D" unique_id=369541836]
+[node name="Monkey" type="CharacterBody2D" unique_id=369541836 groups=["monkey"]]
 collision_layer = 2
 script = ExtResource("1_0500s")
 
