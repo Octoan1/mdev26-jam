@@ -1,14 +1,22 @@
 class_name Monkey
 extends CharacterBody2D
+## Walks straight at the banana whenever it has a clear line of sight to it, and dies on hazard tiles.
 
+signal died
+
+## the banana to chase, required
 @export var test_banana: Node2D
+## layer checked for is_hazard tiles, leave unset for levels without any
 @export var hazard_tile_map: TileMapLayer
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
+var _is_dead: bool = false
 
+
+## Aims the ray at the banana and moves toward it unless a wall is in the way.
 func _physics_process(_delta: float) -> void:
 	ray_cast_2d.target_position = to_local(test_banana.global_position)
 	
@@ -23,12 +31,21 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 
+## Kills the monkey if the tile under its center is marked is_hazard.
 func check_tile_hazard() -> void:
 	if hazard_tile_map:
 		var tile_pos: Vector2i = hazard_tile_map.local_to_map(hazard_tile_map.to_local(global_position))
 		var tile_data: TileData = hazard_tile_map.get_cell_tile_data(tile_pos)
 		# hazard found!
-		# can run whatever animations or custom content here:
 		if tile_data and tile_data.get_custom_data("is_hazard"):
-			LevelManager.restart_level()
-		
+			die()
+
+
+## Stops the monkey and emits [signal died] once, however many hazards hit it.
+func die() -> void:
+	if _is_dead:
+		return
+	_is_dead = true
+	# death animations or sounds can go here
+	set_physics_process(false)
+	died.emit()

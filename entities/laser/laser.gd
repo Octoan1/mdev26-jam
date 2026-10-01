@@ -1,6 +1,6 @@
 class_name Laser
 extends Node2D
-## Rotating beam that restarts the level when it touches the monkey; walls cut it short.
+## Rotating beam that kills the monkey when it touches it; walls cut it short.
 
 ## degrees per second, negative spins counter-clockwise
 @export var rotation_speed: float = 45.0
@@ -16,7 +16,7 @@ func _ready() -> void:
 	ray_cast_2d.target_position = Vector2(max_length, 0.0)
 
 
-## Spins the laser, trims the beam to whatever it hits, and restarts the level if that is the monkey.
+## Spins the laser, trims the beam to whatever it hits, and kills the monkey if that is what it hit.
 func _physics_process(delta: float) -> void:
 	rotation_degrees += rotation_speed * delta
 	# the ray moved this frame, so refresh it before reading the hit
@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void:
 	var end: Vector2 = ray_cast_2d.target_position
 	if ray_cast_2d.is_colliding():
 		end = to_local(ray_cast_2d.get_collision_point())
-		if ray_cast_2d.get_collider() is Monkey:
-			LevelManager.restart_level()
+		var monkey: Monkey = ray_cast_2d.get_collider() as Monkey
+		if monkey:
+			monkey.die()
 	beam.set_point_position(1, end)
