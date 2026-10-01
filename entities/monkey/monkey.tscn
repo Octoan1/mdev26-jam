@@ -29,11 +29,11 @@ region = Rect2(1408, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnq8v"]
 atlas = ExtResource("2_od3m1")
-region = Rect2(128, 0, 128, 128)
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xvyb"]
 atlas = ExtResource("2_od3m1")
-region = Rect2(256, 0, 128, 128)
+region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_61bnc"]
 atlas = ExtResource("2_od3m1")
@@ -137,9 +137,7 @@ script = ExtResource("1_0500s")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1870616918]
 sprite_frames = SubResource("SpriteFrames_81a5f")
-animation = &"eat"
 autoplay = "default"
-frame_progress = 0.41618273
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=118150200]
 
