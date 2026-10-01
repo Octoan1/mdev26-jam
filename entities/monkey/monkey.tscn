@@ -129,7 +129,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
-radius = 35.22783
+radius = 22.0
 
 [node name="Monkey" type="CharacterBody2D" unique_id=369541836 groups=["monkey"]]
 collision_layer = 2
@@ -142,4 +142,5 @@ autoplay = "default"
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=118150200]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561119598]
+position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_yf5fn")
