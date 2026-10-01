@@ -140,6 +140,8 @@ sprite_frames = SubResource("SpriteFrames_81a5f")
 autoplay = "default"
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=118150200]
+collision_mask = 5
+collide_with_areas = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561119598]
 shape = SubResource("CircleShape2D_yf5fn")
