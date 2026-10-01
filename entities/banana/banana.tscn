@@ -39,6 +39,8 @@ autoplay = "default"
 frame_progress = 0.19655012
 
 [node name="Draggable" type="Area2D" parent="." unique_id=497776732 node_paths=PackedStringArray("parent")]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_mb6cj")
 parent = NodePath("..")
 metadata/_custom_type_script = "uid://ba6rfcdula2ja"
