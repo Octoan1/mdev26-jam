@@ -23,10 +23,10 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 
-func check_tile_hazard():
+func check_tile_hazard() -> void:
 	if hazard_tile_map:
-		var tile_pos = hazard_tile_map.local_to_map(hazard_tile_map.to_local(global_position))
-		var tile_data = hazard_tile_map.get_cell_tile_data(tile_pos)
+		var tile_pos: Vector2i = hazard_tile_map.local_to_map(hazard_tile_map.to_local(global_position))
+		var tile_data: TileData = hazard_tile_map.get_cell_tile_data(tile_pos)
 		# hazard found!
 		# can run whatever animations or custom content here:
 		if tile_data and tile_data.get_custom_data("is_hazard"):
