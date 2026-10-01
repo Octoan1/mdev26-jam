@@ -8,7 +8,7 @@ Files are grouped **by thing**, not by file type: a scene, its script, and its a
 
 ```
 game/          main scene + top-level game flow (loads the current level)
-entities/      things in the world, one folder each (monkey/, banana/, goal/, laser/)
+entities/      things in the world, one folder each (monkey/, banana/, goal/, laser/, turret/)
 components/    reusable drop-in nodes (e.g. draggable_component.gd)
 levels/        one scene per level (level_01.tscn, ...) + shared tileset.tres + level_list.tres (play order)
 ui/            menus, HUD, win/lose screens
@@ -28,7 +28,10 @@ assets/        shared stuff owned by no single entity (audio/, fonts/); not crea
    Hazard tiles do nothing in a level where this is unset.
 6. For a laser, drag `entities/laser/laser.tscn` into the scene. The node's rotation is its starting angle;
    **Rotation Speed** (degrees per second, negative for counter-clockwise) and **Max Length** are in the Inspector.
-7. Open `levels/level_list.tres` and drag the new scene into the **Levels** array. Its position in the array is its play order.
+7. For a turret, drag `entities/turret/turret.tscn` into the scene. It tracks the monkey whenever it can see it and
+   fires bullets, so give the monkey walls to hide behind. **Fire Interval**, **View Range**, **Turn Speed**, and
+   **Bullet Speed** are in the Inspector.
+8. Open `levels/level_list.tres` and drag the new scene into the **Levels** array. Its position in the array is its play order.
 
 ## Physics layers
 
@@ -44,6 +47,9 @@ set its mask to whatever it should detect.
 
 The laser is on no layer: its `RayCast2D` scans World and Player, so walls cut the beam short. Untick World on a
 laser's ray to let its beam pass through walls.
+
+The turret and its bullets are on no layer either: the turret's `RayCast2D` and each bullet scan World and Player,
+so walls block the turret's view and stop its bullets.
 
 ## Winning and failing
 
@@ -61,6 +67,7 @@ sound goes in `Monkey.die()`, and anything about the level (a fail screen, a liv
 | Banana        | `entities/banana/banana_death_zone.gd`  | the monkey's body enters the banana's `DeathZone`       |
 | Hazard tiles  | `check_tile_hazard()` in `entities/monkey/monkey.gd` | the monkey's center is on a tile with `is_hazard` custom data |
 | Laser         | `entities/laser/laser.gd`               | the beam touches the monkey's body                      |
+| Turret        | `entities/turret/bullet.gd`             | a bullet touches the monkey's body                      |
 
 To make a tile deadly, tick its `is_hazard` custom data in `levels/tileset.tres`.
 
