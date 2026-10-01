@@ -30,6 +30,11 @@ func _ready() -> void:
 	layer.add_child(_fade)
 
 
+## Whether a scene change is fading right now.
+func is_changing() -> bool:
+	return _is_changing
+
+
 ## Fades out, swaps to the scene at [param path], and fades back in, ignoring calls made mid-transition.
 func change_scene(path: String) -> void:
 	if _is_changing:

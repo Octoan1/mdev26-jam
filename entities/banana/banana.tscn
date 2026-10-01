@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ba6rfcdula2ja" path="res://components/draggable_component.gd" id="1_mb6cj"]
 [ext_resource type="Texture2D" uid="uid://djg6mwu63oi8n" path="res://entities/banana/banana-Sheet.png" id="1_pc733"]
+[ext_resource type="Script" uid="uid://dmtdng4uetgrj" path="res://entities/banana/banana_death_zone.gd" id="3_v2mbs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2mbs"]
 atlas = ExtResource("1_pc733")
@@ -28,6 +29,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 46.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7k2vp"]
+
 [node name="Banana" type="Node2D" unique_id=1063776925 groups=["banana"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=885515484]
@@ -42,3 +45,14 @@ metadata/_custom_type_script = "uid://ba6rfcdula2ja"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable" unique_id=1415540539]
 shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="DeathZone" type="Area2D" parent="." unique_id=687232774]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_v2mbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" unique_id=24037219]
+scale = Vector2(1.465, 1.465)
+shape = SubResource("CircleShape2D_7k2vp")
+
+[connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]

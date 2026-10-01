@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="LevelList" format=3]
+[gd_resource type="Resource" script_class="LevelList" format=3 uid="uid://d1jnv8pos2xuh"]
 
-[ext_resource type="Script" path="res://levels/level_list.gd" id="1_list"]
+[ext_resource type="Script" uid="uid://bh1m5g2pcoatb" path="res://levels/level_list.gd" id="1_list"]
 [ext_resource type="PackedScene" uid="uid://fllmnuybpjlt" path="res://levels/level_01.tscn" id="2_l01"]
-[ext_resource type="PackedScene" path="res://levels/level_02.tscn" id="3_l02"]
+[ext_resource type="PackedScene" uid="uid://bpojbpsp1xwhp" path="res://levels/level_4.tscn" id="3_c8u5a"]
+[ext_resource type="PackedScene" uid="uid://wuw0bxbm1uv8" path="res://levels/level_02.tscn" id="3_l02"]
+[ext_resource type="PackedScene" uid="uid://dv6wgbk4i13aj" path="res://levels/level_03.tscn" id="3_p7nca"]
+[ext_resource type="PackedScene" uid="uid://dq4ry2bfeya6j" path="res://levels/level_5.tscn" id="5_qljw6"]
+[ext_resource type="PackedScene" uid="uid://bxfc281yulbl" path="res://levels/level_6.tscn" id="6_i1udd"]
 
 [resource]
 script = ExtResource("1_list")
-levels = Array[PackedScene]([ExtResource("2_l01"), ExtResource("3_l02")])
+levels = Array[PackedScene]([ExtResource("2_l01"), ExtResource("3_p7nca"), ExtResource("3_c8u5a"), ExtResource("3_l02"), ExtResource("5_qljw6"), ExtResource("6_i1udd")])
