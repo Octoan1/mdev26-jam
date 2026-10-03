@@ -1,19 +1,71 @@
 [gd_scene format=3 uid="uid://bgoalmarkerxq"]
 
 [ext_resource type="Script" uid="uid://bylvhvo4c232m" path="res://entities/goal/goal.gd" id="1_goal"]
+[ext_resource type="Texture2D" uid="uid://847v0ho3bxih" path="res://entities/goal/flag-Sheet.png" id="2_dmkwb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhrrt"]
+atlas = ExtResource("2_dmkwb")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybxdf"]
+atlas = ExtResource("2_dmkwb")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvh4n"]
+atlas = ExtResource("2_dmkwb")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kseb4"]
+atlas = ExtResource("2_dmkwb")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp0uu"]
+atlas = ExtResource("2_dmkwb")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weerq"]
+atlas = ExtResource("2_dmkwb")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhrrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybxdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvh4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kseb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bp0uu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_weerq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_goal"]
 size = Vector2(40, 40)
 
-[node name="Goal" type="Area2D" unique_id=989508518]
+[node name="Goal" type="Area2D" unique_id=1188464713]
 collision_layer = 8
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_goal")
 
-[node name="Placeholder" type="Polygon2D" parent="." unique_id=1399095974]
-color = Color(1, 0.84, 0.2, 0.6)
-polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=401868808]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.93075013
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1607135045]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=750010569]
 shape = SubResource("RectangleShape2D_goal")

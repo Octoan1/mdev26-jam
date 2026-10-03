@@ -20,7 +20,17 @@ var _is_dead: bool = false
 func _physics_process(_delta: float) -> void:
 	ray_cast_2d.target_position = to_local(test_banana.global_position)
 	
-	if not ray_cast_2d.is_colliding():
+	if ray_cast_2d.is_colliding():
+		if not ray_cast_2d.is_colliding():
+			return
+		
+		var collider: Object = ray_cast_2d.get_collider()
+		var parent: Node2D = collider.get_parent()
+	
+		# check if component is child of banana
+		if not (parent and parent.is_in_group("banana")):
+			return
+		
 		var dir: Vector2 = self.global_position.direction_to(test_banana.global_position)
 		self.velocity = dir * SPEED
 	else:

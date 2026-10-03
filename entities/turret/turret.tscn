@@ -1,22 +1,82 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://8rtntpaildxq"]
 
-[ext_resource type="Script" path="res://entities/turret/turret.gd" id="1_turret"]
+[ext_resource type="Script" uid="uid://bxtmxhl6wvjl2" path="res://entities/turret/turret.gd" id="1_turret"]
+[ext_resource type="Texture2D" uid="uid://2qgooeyxhiiv" path="res://entities/turret/turret-Sheet.png" id="2_ecd68"]
 
-[node name="Turret" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uj4s"]
+atlas = ExtResource("2_ecd68")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqd58"]
+atlas = ExtResource("2_ecd68")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_un5sm"]
+atlas = ExtResource("2_ecd68")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uj4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqd58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_un5sm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecd68"]
+atlas = ExtResource("2_ecd68")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56xmk"]
+atlas = ExtResource("2_ecd68")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dv8dn"]
+atlas = ExtResource("2_ecd68")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecd68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56xmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dv8dn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Turret" type="Node2D" unique_id=1144720898]
 script = ExtResource("1_turret")
 
-[node name="Base" type="Polygon2D" parent="."]
-color = Color(0.2, 0.2, 0.25, 1)
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+[node name="Base" type="AnimatedSprite2D" parent="." unique_id=1393054075]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
 
-[node name="Barrel" type="Node2D" parent="."]
+[node name="Barrel" type="Node2D" parent="." unique_id=1461839630]
 
-[node name="Shape" type="Polygon2D" parent="Barrel"]
-color = Color(0.6, 0.6, 0.65, 1)
-polygon = PackedVector2Array(0, -5, 28, -5, 28, 5, 0, 5)
+[node name="Shape" type="AnimatedSprite2D" parent="Barrel" unique_id=1652437929]
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+autoplay = "default"
+frame_progress = 0.5260485
 
-[node name="Muzzle" type="Marker2D" parent="Barrel"]
+[node name="Muzzle" type="Marker2D" parent="Barrel" unique_id=759014013]
 position = Vector2(28, 0)
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1264479727]
 collision_mask = 3
