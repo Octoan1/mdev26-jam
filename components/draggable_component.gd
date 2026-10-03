@@ -45,6 +45,12 @@ func _input(event: InputEvent) -> void:
 			is_dragging = false
 
 
+## Drops the parent when the mouse leaves the window, where the release would never be seen.
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_MOUSE_EXIT or what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		is_dragging = false
+
+
 ## Marks the grab area as hovered.
 func _on_mouse_entered() -> void:
 	# hover logic

@@ -20,27 +20,33 @@ var _is_dead: bool = false
 ## Aims the ray at the banana and moves toward it unless a wall is in the way.
 func _physics_process(_delta: float) -> void:
 	ray_cast_2d.target_position = to_local(test_banana.global_position)
-	
-	if ray_cast_2d.is_colliding():
-		if not ray_cast_2d.is_colliding():
-			return
-		
-		var collider: Object = ray_cast_2d.get_collider()
-		var parent: Node2D = collider.get_parent()
-	
-		# check if component is child of banana
-		if not (parent and parent.is_in_group("banana")):
-			return
-		
+
+	if _can_see_banana():
 		var dir: Vector2 = self.global_position.direction_to(test_banana.global_position)
 		self.velocity = dir * SPEED
 	else:
 		self.velocity = Vector2.ZERO
-	
+
 	# collision loop for hazards
 	check_tile_hazard()
 
 	move_and_slide()
+
+
+## Whether the first thing the ray hits is part of the banana rather than a wall.
+func _can_see_banana() -> bool:
+	var collider: Node = ray_cast_2d.get_collider() as Node
+	if collider == null:
+		return false
+	# the ray hits the banana's areas, which are children of the banana itself
+	var parent: Node = collider.get_parent()
+	return parent != null and parent.is_in_group("banana")
+
+
+## Whether the monkey has been killed.
+func is_dead() -> bool:
+	return _is_dead
+
 
 ## Kills the monkey if the tile under its center is marked is_hazard.
 func check_tile_hazard() -> void:

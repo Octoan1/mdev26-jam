@@ -6,6 +6,7 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if body is Monkey:
 		print("Monkey reach banana")
-		# the eat animation draws its own banana
+		# the eat animation draws its own banana, and a hidden banana shouldn't still be draggable
 		get_parent().hide()
+		get_parent().set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 		body.die(&"eat")

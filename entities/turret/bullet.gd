@@ -4,8 +4,10 @@ extends Area2D
 
 ## pixels per second, set by the turret that fires it
 var speed: float = 250.0
-## seconds before it removes itself, in case it flies out of the level
-var lifetime: float = 4.0
+## pixels it can fly before it removes itself, in case it leaves the level
+var max_distance: float = 2000.0
+
+var _travelled: float = 0.0
 
 
 ## Listens for bodies the bullet runs into.
@@ -13,11 +15,12 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 
-## Flies along its own x axis and removes itself when its lifetime runs out.
+## Flies along its own x axis and removes itself once it has gone its full distance.
 func _physics_process(delta: float) -> void:
 	position += transform.x * speed * delta
-	lifetime -= delta
-	if lifetime <= 0.0:
+	# measured in distance, not time, so slow bullets reach as far as fast ones
+	_travelled += speed * delta
+	if _travelled >= max_distance:
 		queue_free()
 
 

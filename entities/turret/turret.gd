@@ -42,9 +42,11 @@ func _physics_process(delta: float) -> void:
 		_fire()
 
 
-## Whether the monkey is in range with no wall between it and the turret.
+## Whether the monkey is alive and in range with no wall between it and the turret.
 func _can_see_monkey() -> bool:
-	if _monkey == null or global_position.distance_to(_monkey.global_position) > view_range:
+	if _monkey == null or _monkey.is_dead():
+		return false
+	if global_position.distance_to(_monkey.global_position) > view_range:
 		return false
 	ray_cast_2d.target_position = ray_cast_2d.to_local(_monkey.global_position)
 	ray_cast_2d.force_raycast_update()
