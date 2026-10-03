@@ -2,6 +2,49 @@
 
 [ext_resource type="Script" uid="uid://dwtl4651713hk" path="res://ui/title_screen/title_screen.gd" id="1_title"]
 [ext_resource type="Theme" uid="uid://cuyum86oqhuh3" path="res://ui/ui_theme.tres" id="2_ffat2"]
+[ext_resource type="Texture2D" uid="uid://duhglx0pidry6" path="res://ui/title_screen/test_title-Sheet.png" id="3_72buf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72buf"]
+atlas = ExtResource("3_72buf")
+region = Rect2(0, 0, 608, 324)
+
+[sub_resource type="Animation" id="Animation_72buf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/Title:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 608, 324)]
+}
+
+[sub_resource type="Animation" id="Animation_rhiq2"]
+resource_name = "title_text_wiggle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/Title:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.39999998),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 608, 324), Rect2(608, 0, 608, 324), Rect2(1216, 0, 608, 324)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kp51c"]
+_data = {
+&"RESET": SubResource("Animation_72buf"),
+&"title_text_wiggle": SubResource("Animation_rhiq2")
+}
 
 [node name="TitleScreen" type="Control" unique_id=1082911728]
 layout_mode = 3
@@ -19,7 +62,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.12, 0.2, 0.13, 1)
+color = Color(0.19607843, 0.23529412, 0.22352941, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=2069472670]
 layout_mode = 1
@@ -33,7 +76,12 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=491446813]
+[node name="Title" type="TextureRect" parent="CenterContainer/VBoxContainer" unique_id=1828498835]
+layout_mode = 2
+texture = SubResource("AtlasTexture_72buf")
+
+[node name="OLDtitle" type="Label" parent="CenterContainer/VBoxContainer" unique_id=491446813]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_ffat2")
 theme_override_font_sizes/font_size = 128
@@ -87,5 +135,9 @@ theme = ExtResource("2_ffat2")
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 24
 text = "Volume"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=909720911]
+libraries/ = SubResource("AnimationLibrary_kp51c")
+autoplay = &"title_text_wiggle"
 
 [connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

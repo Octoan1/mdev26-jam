@@ -28,3 +28,6 @@ func _on_quit_pressed() -> void:
 func _on_h_slider_value_changed(value: float) -> void:
 	AudioManager.volume = value
 	AudioManager.update_volume()
+
+
+	
