@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://autoload/scene_manager.gd"
 LevelManager="*res://autoload/level_manager.gd"
+AudioManager="*uid://n5flp21rdj40"
 
 [debug]
 
@@ -35,6 +36,7 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
+"res://audio/": "orange",
 "res://autoload/": "pink",
 "res://components/": "gray",
 "res://entities/": "yellow",

@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://bgoalmarkerxq"]
 
-[ext_resource type="Script" path="res://entities/goal/goal.gd" id="1_goal"]
+[ext_resource type="Script" uid="uid://bylvhvo4c232m" path="res://entities/goal/goal.gd" id="1_goal"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_goal"]
 size = Vector2(40, 40)
 
-[node name="Goal" type="Area2D"]
+[node name="Goal" type="Area2D" unique_id=989508518]
 collision_layer = 8
 collision_mask = 2
 monitorable = false
 script = ExtResource("1_goal")
 
-[node name="Placeholder" type="Polygon2D" parent="."]
+[node name="Placeholder" type="Polygon2D" parent="." unique_id=1399095974]
 color = Color(1, 0.84, 0.2, 0.6)
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1607135045]
 shape = SubResource("RectangleShape2D_goal")

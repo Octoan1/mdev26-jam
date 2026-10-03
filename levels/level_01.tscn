@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://xccyuptqccqf" path="res://levels/tileset.tres" id="2_tiles"]
 [ext_resource type="PackedScene" uid="uid://di22plj3da3aq" path="res://entities/monkey/monkey.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://bgoalmarkerxq" path="res://entities/goal/goal.tscn" id="4_goal"]
+[ext_resource type="Theme" uid="uid://cuyum86oqhuh3" path="res://ui/ui_theme.tres" id="5_mllcm"]
 
 [node name="Level01" type="Node2D" unique_id=523379493]
 
@@ -14,6 +15,30 @@ tile_set = ExtResource("2_tiles")
 [node name="Walls" type="TileMapLayer" parent="." unique_id=722243316]
 tile_map_data = PackedByteArray("AAAAAAcAAAACAAAAAAAPAAAAAAACAAAAAAAAAAAAAAACAAAAAAAAAAEAAAACAAAAAAAAAAIAAAACAAAAAAAAAAMAAAACAAAAAAAAAAQAAAACAAAAAAAAAAUAAAACAAAAAAAAAAYAAAACAAAAAAAAAAgAAAACAAAAAAAAAAkAAAACAAAAAAAAAAoAAAACAAAAAAAAAAsAAAACAAAAAAAAAAwAAAACAAAAAAABAAAAAAACAAAAAAACAAAAAAACAAAAAAADAAAAAAACAAAAAAAEAAAAAAACAAAAAAAFAAAAAAACAAAAAAAGAAAAAAACAAAAAAAHAAAAAAACAAAAAAAIAAAAAAACAAAAAAAJAAAAAAACAAAAAAAKAAAAAAACAAAAAAALAAAAAAACAAAAAAAMAAAAAAACAAAAAAANAAAAAAACAAAAAAAOAAAAAAACAAAAAAAQAAAAAAACAAAAAAARAAAAAAACAAAAAAASAAAAAAACAAAAAAATAAAAAAACAAAAAAAUAAAAAAACAAAAAAABAAwAAAACAAAAAAACAAwAAAACAAAAAAADAAwAAAACAAAAAAAEAAwAAAACAAAAAAAFAAwAAAACAAAAAAAGAAwAAAACAAAAAAAHAAwAAAACAAAAAAAIAAwAAAACAAAAAAAJAAwAAAACAAAAAAAKAAwAAAACAAAAAAALAAwAAAACAAAAAAAMAAwAAAACAAAAAAANAAwAAAACAAAAAAAOAAwAAAACAAAAAAAPAAwAAAACAAAAAAAQAAwAAAACAAAAAAARAAwAAAACAAAAAAASAAwAAAACAAAAAAATAAwAAAACAAAAAAAUAAwAAAACAAAAAAAUAAsAAAACAAAAAAAUAAoAAAACAAAAAAAUAAkAAAACAAAAAAAUAAgAAAACAAAAAAAUAAcAAAACAAAAAAAUAAYAAAACAAAAAAAUAAUAAAACAAAAAAAUAAQAAAACAAAAAAAUAAMAAAACAAAAAAAUAAIAAAACAAAAAAAUAAEAAAACAAAAAAAFAAEAAAACAAAAAAAFAAIAAAACAAAAAAAFAAMAAAACAAAAAAAFAAQAAAACAAAAAAAFAAUAAAACAAAAAAAFAAYAAAACAAAAAAAFAAcAAAACAAAAAAAFAAgAAAACAAAAAAAGAAgAAAACAAAAAAAHAAgAAAACAAAAAAAIAAgAAAACAAAAAAAJAAgAAAACAAAAAAAKAAgAAAACAAAAAAALAAgAAAACAAAAAAAMAAgAAAACAAAAAAANAAgAAAACAAAAAAA=")
 tile_set = ExtResource("2_tiles")
+
+[node name="TutorialText" type="Label" parent="." unique_id=495911146]
+offset_left = 291.0
+offset_top = 59.0
+offset_right = 977.0
+offset_bottom = 242.0
+theme = ExtResource("5_mllcm")
+theme_override_colors/font_color = Color(1, 0.84705883, 0.19607843, 1)
+theme_override_font_sizes/font_size = 44
+text = "Click and drag the banana 
+to guide the monkey 
+to the end goal in the middle."
+horizontal_alignment = 1
+
+[node name="TutorialText2" type="Label" parent="." unique_id=561486333]
+offset_left = 364.0
+offset_top = 542.0
+offset_right = 1050.0
+offset_bottom = 725.0
+theme = ExtResource("5_mllcm")
+theme_override_colors/font_color = Color(1, 0.84705883, 0.19607843, 1)
+theme_override_font_sizes/font_size = 22
+text = "P.S. Don't let the monkey reach the banana!"
+horizontal_alignment = 1
 
 [node name="Goal" parent="." unique_id=543434416 instance=ExtResource("4_goal")]
 position = Vector2(504, 310)
