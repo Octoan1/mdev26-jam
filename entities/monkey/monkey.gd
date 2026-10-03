@@ -9,6 +9,7 @@ signal died
 ## layer checked for is_hazard tiles, leave unset for levels without any
 @export var hazard_tile_map: TileMapLayer
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
+@onready var sprite: AnimatedSprite2D = $Sprite
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
@@ -51,13 +52,26 @@ func check_tile_hazard() -> void:
 			die()
 
 
-## Stops the monkey and emits [signal died] once, however many hazards hit it.
-func die() -> void:
+## Stops the monkey, plays [param animation] once, then emits [signal died], however many hazards hit it.
+func die(animation: StringName = &"burning") -> void:
 	if _is_dead:
 		return
 	_is_dead = true
-	# death animations or sounds can go here
 	set_physics_process(false)
+
+	sprite.play(animation)
+	# looping animations never finish, so one pass ends on the loop signal instead
+	if sprite.sprite_frames.get_animation_loop(animation):
+		await sprite.animation_looped
+	else:
+		await sprite.animation_finished
+	# hold the end of the animation through the fade, as ash if the monkey burned
+	if animation == &"burning":
+		sprite.play(&"burnt")
+	else:
+		sprite.pause()
+		sprite.frame = sprite.sprite_frames.get_frame_count(animation) - 1
+
 	died.emit()
 	# a level run by itself (F6) has no game.gd listening, so reload it from here
 	if owner and owner == get_tree().current_scene:

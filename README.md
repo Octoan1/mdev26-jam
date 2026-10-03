@@ -57,10 +57,11 @@ Goals and hazards never change the level themselves. `game/game.gd` listens for 
 
 **Winning:** the goal emits `Goal.reached`, and `game.gd` calls `LevelManager.complete_level()`.
 
-**Failing:** every hazard calls `monkey.die()`. The monkey stops moving and emits `Monkey.died` once, and `game.gd`
-calls `LevelManager.restart_level()`. There is no death animation, lives count, or fail screen yet: an animation or
-sound goes in `Monkey.die()`, and anything about the level (a fail screen, a lives count) goes in
-`game.gd`'s `_on_monkey_died()`. New hazards should call `die()` too. The monkey dies to:
+**Failing:** every hazard calls `monkey.die()`. The monkey stops moving, plays a death animation once, then emits
+`Monkey.died`, and `game.gd` calls `LevelManager.restart_level()`. `die()` plays `burning` and leaves the `burnt` ash
+on screen; the banana calls `die(&"eat")` to play the eat animation instead. Pass any other animation name on the
+monkey's `Sprite` the same way. There is no lives count or fail screen yet: a death sound goes in `Monkey.die()`, and
+anything about the level goes in `game.gd`'s `_on_monkey_died()`. New hazards should call `die()` too. The monkey dies to:
 
 | Hazard        | Where                                   | Kills when                                              |
 |---------------|-----------------------------------------|---------------------------------------------------------|

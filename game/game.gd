@@ -26,4 +26,7 @@ func _on_goal_reached() -> void:
 func _on_monkey_died() -> void:
 	while SceneManager.is_changing():
 		await get_tree().process_frame
+		# the fade swapped this scene out (the level was won), so there is nothing left to restart
+		if not is_inside_tree():
+			return
 	LevelManager.restart_level()
