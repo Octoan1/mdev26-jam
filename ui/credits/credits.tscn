@@ -56,28 +56,28 @@ theme_override_constants/separation = 8
 layout_mode = 2
 theme = ExtResource("2_theme")
 theme_override_font_sizes/font_size = 36
-text = "Garrett Oamek - Development, Design"
+text = "Martin G. - Music"
 horizontal_alignment = 1
 
 [node name="Name2" type="Label" parent="CenterContainer/VBoxContainer/Names"]
 layout_mode = 2
 theme = ExtResource("2_theme")
 theme_override_font_sizes/font_size = 36
-text = "Martin G. - Music"
+text = "Owen K (Octoan) - Dev, Design, Art"
 horizontal_alignment = 1
 
 [node name="Name3" type="Label" parent="CenterContainer/VBoxContainer/Names"]
 layout_mode = 2
 theme = ExtResource("2_theme")
 theme_override_font_sizes/font_size = 36
-text = "Placeholder Name 3 - Role"
+text = "Conner M (Connrad) - Dev, Design"
 horizontal_alignment = 1
 
 [node name="Name4" type="Label" parent="CenterContainer/VBoxContainer/Names"]
 layout_mode = 2
 theme = ExtResource("2_theme")
 theme_override_font_sizes/font_size = 36
-text = "Placeholder Name 4 - Role"
+text = "Garrett Oamek - Dev, Design"
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
