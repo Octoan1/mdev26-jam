@@ -151,6 +151,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kksvr"]
+atlas = ExtResource("5_twb21")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbewi"]
+atlas = ExtResource("5_twb21")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu7t0"]
+atlas = ExtResource("5_twb21")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3gngh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kksvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbewi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu7t0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Level10" type="Node2D" unique_id=1702942971]
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=295518195]
@@ -172,20 +201,6 @@ position = Vector2(912, 96)
 position = Vector2(97, 520)
 test_banana = NodePath("../Banana")
 hazard_tile_map = NodePath("../Hazards")
-
-[node name="Cannon" type="Sprite2D" parent="." unique_id=797716607]
-position = Vector2(504, 143)
-texture = ExtResource("5_twb21")
-
-[node name="Cannon2" type="Sprite2D" parent="." unique_id=1736367264]
-position = Vector2(239.00002, 392)
-rotation = 1.0961951
-texture = ExtResource("5_twb21")
-
-[node name="Cannon3" type="Sprite2D" parent="." unique_id=1418867743]
-position = Vector2(776, 388.00003)
-rotation = 1.9407938
-texture = ExtResource("5_twb21")
 
 [node name="Cheese" type="AnimatedSprite2D" parent="." unique_id=1549295678]
 position = Vector2(549, 428)
@@ -212,7 +227,24 @@ sprite_frames = SubResource("SpriteFrames_57qmd")
 autoplay = "default"
 frame_progress = 0.058427613
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1627961937]
+[node name="Rat" type="AnimatedSprite2D" parent="." unique_id=1627961937]
 position = Vector2(514, 335)
 sprite_frames = SubResource("SpriteFrames_d0u6y")
+autoplay = "default"
+
+[node name="Cannon" type="AnimatedSprite2D" parent="." unique_id=1197455942]
+position = Vector2(511, 143)
+sprite_frames = SubResource("SpriteFrames_3gngh")
+autoplay = "default"
+
+[node name="Cannon2" type="AnimatedSprite2D" parent="." unique_id=294718658]
+position = Vector2(779, 409)
+rotation = 2.0600429
+sprite_frames = SubResource("SpriteFrames_3gngh")
+autoplay = "default"
+
+[node name="Cannon3" type="AnimatedSprite2D" parent="." unique_id=1122381537]
+position = Vector2(226, 388)
+rotation = -1.9800488
+sprite_frames = SubResource("SpriteFrames_3gngh")
 autoplay = "default"
