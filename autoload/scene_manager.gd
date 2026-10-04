@@ -5,6 +5,7 @@ extends Node
 
 const TITLE := "uid://gywbpgqwxmdi"
 const GAME := "uid://dxnmievu7c8yh"
+const CREDITS := "uid://ccreditspage"
 
 ## seconds for each half of the fade (out, then in)
 @export var fade_time: float = 0.25

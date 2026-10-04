@@ -1,6 +1,8 @@
 # mdev26-jam
 
 Godot 4.7 project. Main scene: `ui/title_screen/title_screen.tscn` (Play loads `game/game.tscn`).
+Beating the last level shows `ui/credits/credits.tscn`, which the title screen's Credits button also opens; the names
+are edited on the labels in that scene.
 
 ## Project layout
 

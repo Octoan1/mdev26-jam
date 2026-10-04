@@ -2,6 +2,7 @@ extends Control
 
 @onready var play_button: Button = %PlayButton
 @onready var quit_button: Button = %QuitButton
+@onready var credits_button: Button = %CreditsButton
 @onready var volume_slider: HSlider = $HSlider
 
 
@@ -9,6 +10,7 @@ extends Control
 func _ready() -> void:
 	play_button.pressed.connect(_on_play_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
+	credits_button.pressed.connect(_on_credits_pressed)
 
 	# quitting does nothing useful in a browser tab
 	quit_button.visible = not OS.has_feature("web")
@@ -24,6 +26,11 @@ func _on_play_pressed() -> void:
 ## Closes the game.
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+## Opens the credits screen.
+func _on_credits_pressed() -> void:
+	SceneManager.change_scene(SceneManager.CREDITS)
 
 
 ## Applies the slider's value as the music volume.
