@@ -17,13 +17,23 @@ func _ready() -> void:
 			node.died.connect(_on_monkey_died)
 
 
-## Moves on to the next level.
+## Moves on to the next level once any fade already running has finished.
 func _on_goal_reached() -> void:
-	LevelManager.complete_level()
+	if await _wait_for_fade():
+		LevelManager.complete_level()
 
 
-## Restarts the level, waiting out any fade already running so the restart isn't dropped.
+## Restarts the level once any fade already running has finished.
 func _on_monkey_died() -> void:
+	if await _wait_for_fade():
+		LevelManager.restart_level()
+
+
+## Waits out a running fade so the next scene change isn't dropped, returning false if this scene was swapped out meanwhile.
+func _wait_for_fade() -> bool:
 	while SceneManager.is_changing():
 		await get_tree().process_frame
-	LevelManager.restart_level()
+		# a fade that ends by replacing this scene leaves nothing to act on
+		if not is_inside_tree():
+			return false
+	return true

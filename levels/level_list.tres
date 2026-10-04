@@ -7,7 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dv6wgbk4i13aj" path="res://levels/level_03.tscn" id="3_p7nca"]
 [ext_resource type="PackedScene" uid="uid://dq4ry2bfeya6j" path="res://levels/level_5.tscn" id="5_qljw6"]
 [ext_resource type="PackedScene" uid="uid://bxfc281yulbl" path="res://levels/level_6.tscn" id="6_i1udd"]
+[ext_resource type="PackedScene" uid="uid://8xlt1aqf5hcp" path="res://levels/level_7.tscn" id="7_w4teu"]
+[ext_resource type="PackedScene" uid="uid://gxfyn6chrktf" path="res://levels/level_8.tscn" id="8_ai5vt"]
+[ext_resource type="PackedScene" uid="uid://hqfclgpe63bg" path="res://levels/level_9.tscn" id="9_ln563"]
+[ext_resource type="PackedScene" uid="uid://dmom53l40k2m1" path="res://levels/level_10.tscn" id="10_0e7ao"]
 
 [resource]
 script = ExtResource("1_list")
-levels = Array[PackedScene]([ExtResource("2_l01"), ExtResource("3_p7nca"), ExtResource("3_c8u5a"), ExtResource("3_l02"), ExtResource("5_qljw6"), ExtResource("6_i1udd")])
+levels = Array[PackedScene]([ExtResource("2_l01"), ExtResource("3_p7nca"), ExtResource("3_c8u5a"), ExtResource("3_l02"), ExtResource("5_qljw6"), ExtResource("6_i1udd"), ExtResource("7_w4teu"), ExtResource("8_ai5vt"), ExtResource("10_0e7ao"), ExtResource("9_ln563")])

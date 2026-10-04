@@ -22,13 +22,13 @@ func go_to_level(index: int) -> void:
 	SceneManager.change_scene(SceneManager.GAME)
 
 
-## Advances to the next level, or back to the title after the last one.
+## Advances to the next level, or to the credits after the last one.
 func complete_level() -> void:
 	if _is_valid_index(current_index + 1):
 		go_to_level(current_index + 1)
 	else:
 		current_index = 0
-		SceneManager.change_scene(SceneManager.TITLE)
+		SceneManager.change_scene(SceneManager.CREDITS)
 
 
 ## Reloads the current level from scratch.
