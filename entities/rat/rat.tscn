@@ -1,0 +1,43 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://entities/rat/rat.gd" id="1_rat"]
+[ext_resource type="Texture2D" uid="uid://dggqupoipp211" path="res://entities/rat/rat-Sheet.png" id="2_rat"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0"]
+atlas = ExtResource("2_rat")
+region = Rect2(0, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1"]
+atlas = ExtResource("2_rat")
+region = Rect2(144, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2"]
+atlas = ExtResource("2_rat")
+region = Rect2(288, 0, 144, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Rat" type="Node2D" groups=["rat"]]
+script = ExtResource("1_rat")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rat")
+autoplay = "default"
+
+[node name="Mouth" type="Marker2D" parent="."]
+position = Vector2(0, -4)

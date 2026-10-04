@@ -10,7 +10,7 @@ Files are grouped **by thing**, not by file type: a scene, its script, and its a
 
 ```
 game/          main scene + top-level game flow (loads the current level)
-entities/      things in the world, one folder each (monkey/, banana/, goal/, laser/, turret/)
+entities/      things in the world, one folder each (monkey/, banana/, goal/, laser/, turret/, cannon/, rat/)
 components/    reusable drop-in nodes (e.g. draggable_component.gd)
 levels/        one scene per level (level_01.tscn, ...) + shared tileset.tres + level_list.tres (play order)
 ui/            menus, HUD, win/lose screens
@@ -35,6 +35,16 @@ assets/        shared stuff owned by no single entity (audio/, fonts/); not crea
    **Bullet Speed** are in the Inspector.
 8. Open `levels/level_list.tres` and drag the new scene into the **Levels** array. Its position in the array is its play order.
 
+### Boss level
+
+`levels/level_boss_fight.tscn` has no goal. It is won by beating the rat:
+
+- Place one **Rat** (`entities/rat/rat.tscn`). It spits fans of cheese at the monkey; **Fire Interval**, **Cheese Count**,
+  **Spread Degrees**, and **Cheese Speed** are in the Inspector.
+- Place **Cannons** (`entities/cannon/cannon.tscn`). The rat needs one bomb hit per cannon in the level.
+- Place a **Pressure Plate** (`entities/cannon/pressure_plate.tscn`) for each cannon and set its **Cannon** in the
+  Inspector. The plate works once: when the monkey steps on it, that cannon fires a bomb that always reaches the rat.
+
 ## Physics layers
 
 Named in Project Settings > Layer Names > 2D Physics. When adding a tile or hazard, put it on its own layer and
@@ -51,13 +61,15 @@ The laser is on no layer: its `RayCast2D` scans World and Player, so walls cut t
 laser's ray to let its beam pass through walls.
 
 The turret and its bullets are on no layer either: the turret's `RayCast2D` and each bullet scan World and Player,
-so walls block the turret's view and stop its bullets.
+so walls block the turret's view and stop its bullets. The rat's cheese is a bullet with a different sprite, and
+pressure plates scan Player only.
 
 ## Winning and failing
 
-Goals and hazards never change the level themselves. `game/game.gd` listens for two signals and decides what happens:
+Goals and hazards never change the level themselves. `game/game.gd` listens for their signals and decides what happens:
 
-**Winning:** the goal emits `Goal.reached`, and `game.gd` calls `LevelManager.complete_level()`.
+**Winning:** the goal emits `Goal.reached`, or on the boss level the rat emits `Rat.defeated` after its last bomb
+hit, and `game.gd` calls `LevelManager.complete_level()`.
 
 **Failing:** every hazard calls `monkey.die()`. The monkey stops moving, plays a death animation once, then emits
 `Monkey.died`, and `game.gd` calls `LevelManager.restart_level()`. `die()` plays `burning` and leaves the `burnt` ash
@@ -71,11 +83,12 @@ anything about the level goes in `game.gd`'s `_on_monkey_died()`. New hazards sh
 | Hazard tiles  | `check_tile_hazard()` in `entities/monkey/monkey.gd` | the monkey's center is on a tile with `is_hazard` custom data |
 | Laser         | `entities/laser/laser.gd`               | the beam touches the monkey's body                      |
 | Turret        | `entities/turret/bullet.gd`             | a bullet touches the monkey's body                      |
+| Rat           | `entities/rat/cheese/cheese.gd` (extends the bullet) | a cheese touches the monkey's body         |
 
 To make a tile deadly, tick its `is_hazard` custom data in `levels/tileset.tres`.
 
 A level scene run by itself (F6) has no `game.gd`, so the monkey reloads that level itself when it dies. Reaching
-the goal does nothing there; run the game from the title screen to test moving between levels.
+the goal or beating the rat does nothing there; run the game from the title screen to test moving between levels.
 
 ## Input
 

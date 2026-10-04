@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://gxfyn6chrktf" path="res://levels/level_8.tscn" id="8_ai5vt"]
 [ext_resource type="PackedScene" uid="uid://hqfclgpe63bg" path="res://levels/level_9.tscn" id="9_ln563"]
 [ext_resource type="PackedScene" uid="uid://dmom53l40k2m1" path="res://levels/level_10.tscn" id="10_0e7ao"]
+[ext_resource type="PackedScene" uid="uid://bv0ty4rb3dh1" path="res://levels/level_boss_fight.tscn" id="11_boss"]
 
 [resource]
 script = ExtResource("1_list")
-levels = Array[PackedScene]([ExtResource("2_l01"), ExtResource("3_p7nca"), ExtResource("3_c8u5a"), ExtResource("3_l02"), ExtResource("5_qljw6"), ExtResource("6_i1udd"), ExtResource("7_w4teu"), ExtResource("8_ai5vt"), ExtResource("10_0e7ao"), ExtResource("9_ln563")])
+levels = Array[PackedScene]([ExtResource("2_l01"), ExtResource("3_p7nca"), ExtResource("3_c8u5a"), ExtResource("3_l02"), ExtResource("5_qljw6"), ExtResource("6_i1udd"), ExtResource("7_w4teu"), ExtResource("8_ai5vt"), ExtResource("10_0e7ao"), ExtResource("9_ln563"), ExtResource("11_boss")])

@@ -1,0 +1,67 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://entities/cannon/bomb.gd" id="1_bomb"]
+[ext_resource type="Texture2D" uid="uid://beu372s2bemyd" path="res://entities/cannon/bomb-Sheet.png" id="2_bomb"]
+[ext_resource type="Texture2D" uid="uid://ta3218x6p7bp" path="res://entities/cannon/explosion-Sheet.png" id="3_explosion"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0"]
+atlas = ExtResource("2_bomb")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1"]
+atlas = ExtResource("2_bomb")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2"]
+atlas = ExtResource("2_bomb")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0"]
+atlas = ExtResource("3_explosion")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1"]
+atlas = ExtResource("3_explosion")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2"]
+atlas = ExtResource("3_explosion")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bomb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 8.0
+}]
+
+[node name="Bomb" type="Node2D"]
+script = ExtResource("1_bomb")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bomb")
+autoplay = "default"
