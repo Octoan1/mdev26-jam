@@ -15,6 +15,7 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
 var _is_dead: bool = false
+var _has_won: bool = false
 
 
 ## Aims the ray at the banana and moves toward it unless a wall is in the way.
@@ -58,9 +59,16 @@ func check_tile_hazard() -> void:
 			die()
 
 
+## Stops the monkey where it stands once the level is won, and keeps hazards from killing it during the fade.
+func finish() -> void:
+	_has_won = true
+	velocity = Vector2.ZERO
+	set_physics_process(false)
+
+
 ## Stops the monkey, plays [param animation] once, then emits [signal died], however many hazards hit it.
 func die(animation: StringName = &"burning") -> void:
-	if _is_dead:
+	if _is_dead or _has_won:
 		return
 	_is_dead = true
 	set_physics_process(false)

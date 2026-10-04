@@ -1,6 +1,8 @@
 extends Node
 ## Hosts the current level and decides what its win/fail events mean.
 
+var _monkey: Monkey
+
 
 ## Spawns the current level and listens to its goals, its boss, and its monkey.
 func _ready() -> void:
@@ -16,11 +18,14 @@ func _ready() -> void:
 		elif node is Rat:
 			node.defeated.connect(_on_level_won)
 		elif node is Monkey:
+			_monkey = node
 			node.died.connect(_on_monkey_died)
 
 
-## Moves on to the next level once any fade already running has finished.
+## Stops the monkey, then moves on to the next level once any fade already running has finished.
 func _on_level_won() -> void:
+	if _monkey:
+		_monkey.finish()
 	if await _wait_for_fade():
 		LevelManager.complete_level()
 
