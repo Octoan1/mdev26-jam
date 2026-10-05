@@ -51,6 +51,22 @@ region = Rect2(512, 0, 128, 128)
 atlas = ExtResource("2_od3m1")
 region = Rect2(640, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4klkl"]
+atlas = ExtResource("2_od3m1")
+region = Rect2(1536, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pq15"]
+atlas = ExtResource("2_od3m1")
+region = Rect2(1664, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_446ty"]
+atlas = ExtResource("2_od3m1")
+region = Rect2(1792, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj6vh"]
+atlas = ExtResource("2_od3m1")
+region = Rect2(1920, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_81a5f"]
 animations = [{
 "frames": [{
@@ -120,6 +136,23 @@ animations = [{
 "loop": 1,
 "name": &"eat",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4klkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pq15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_446ty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj6vh")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
@@ -130,10 +163,10 @@ collision_layer = 2
 script = ExtResource("1_0500s")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1870616918]
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_81a5f")
-animation = &"eat"
+animation = &"walk"
 autoplay = "default"
-frame_progress = 0.16588259
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=118150200]
 collision_mask = 5
