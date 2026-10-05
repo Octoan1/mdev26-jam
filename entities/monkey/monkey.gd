@@ -24,8 +24,15 @@ func _physics_process(_delta: float) -> void:
 	if _can_see_banana():
 		var dir: Vector2 = self.global_position.direction_to(test_banana.global_position)
 		self.velocity = dir * SPEED
+		if not _is_dead:
+			self.sprite.play("walk")
 	else:
 		self.velocity = Vector2.ZERO
+		if not _is_dead:
+			self.sprite.play("default")
+
+	
+		
 
 	# collision loop for hazards
 	check_tile_hazard()
