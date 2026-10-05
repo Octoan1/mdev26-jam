@@ -109,7 +109,7 @@ theme = ExtResource("2_ffat2")
 theme_override_font_sizes/font_size = 56
 text = "Quit"
 
-[node name="CreditsButton" type="Button" parent="."]
+[node name="CreditsButton" type="Button" parent="." unique_id=1183022799]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 1

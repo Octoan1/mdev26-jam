@@ -1,5 +1,8 @@
 extends Area2D
 class_name Draggable
+
+var screen_size: Vector2
+
 ## Lets the mouse pick up and drag its parent node; needs a CollisionShape2D child as the grab area.
 
 ## if unset, will default to owner
@@ -18,6 +21,8 @@ func _ready() -> void:
 	if not parent:
 		parent = owner
 	
+	screen_size = get_viewport_rect().size
+	
 	input_event.connect(_on_input_event)
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
@@ -27,6 +32,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_dragging:
 		parent.global_position = lerp(global_position, get_global_mouse_position() - offset, speed*delta)
+	
+	#var temp: Vector2 = Vector2(4, 4)
+	parent.position = parent.position.clamp(Vector2.ZERO, screen_size)
 
 
 ## Starts a drag when the left button is pressed on the grab area.
@@ -63,3 +71,11 @@ func _on_mouse_exited() -> void:
 	# stop hover logic
 	is_hovered = false
 	pass # Replace with function body.
+
+func is_out_of_bounds(banana: Node2D) -> bool:
+	var screen_size = get_viewport_rect().size
+	
+	if banana.position.x > screen_size.x:
+		return true
+	
+	return false

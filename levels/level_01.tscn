@@ -40,6 +40,17 @@ theme_override_font_sizes/font_size = 22
 text = "P.S. Don't let the monkey reach the banana!"
 horizontal_alignment = 1
 
+[node name="TutorialText3" type="Label" parent="." unique_id=2053365193]
+offset_left = 96.0
+offset_top = 434.0
+offset_right = 782.0
+offset_bottom = 617.0
+theme = ExtResource("5_mllcm")
+theme_override_colors/font_color = Color(1, 0.84705883, 0.19607843, 1)
+theme_override_font_sizes/font_size = 22
+text = "Press 'R' to restart level"
+horizontal_alignment = 1
+
 [node name="Goal" parent="." unique_id=543434416 instance=ExtResource("4_goal")]
 position = Vector2(504, 310)
 
